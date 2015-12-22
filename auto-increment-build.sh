@@ -26,7 +26,7 @@ if [ $PLIST_BUILD_NUM -gt $LAST_BUILD_NUM ]; then
 	BUILD_NUM=$PLIST_BUILD_NUM
 fi
 echo "Using build number: $BUILD_NUM"
-echo ""
+echo " "
 
 # Comparing commmit hash to see if we actually have changes
 LAST_BUILD_HASH=${LAST_BUILD_INFO[1]}
@@ -41,10 +41,10 @@ if [ $LAST_BUILD_HASH == $LATEST_COMMIT_HASH ]; then
 else
 	BUILD_NUM=$(($BUILD_NUM+1))
 	echo "Increase to build $BUILD_NUM"
-	/usr/libexec/Plistbuddy -c "Set CFBundleVersion $BUILD_NUM" "$PLIST_FILE"
 fi
+/usr/libexec/Plistbuddy -c "Set CFBundleVersion $BUILD_NUM" "$PLIST_FILE"
 
-echo ""
+echo " "
 echo "Clean up - Update last build info"
 echo "$BUILD_NUM $LATEST_COMMIT_HASH"> $LAST_BUILD_FILE
 cat $LAST_BUILD_FILE

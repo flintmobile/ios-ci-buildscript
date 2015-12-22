@@ -18,6 +18,7 @@ git -C $GIT_SOURCE log --oneline --no-merges $COMMIT_HASH...HEAD > $RECENT_COMMI
 
 echo "list all changes since $COMMIT_HASH"
 cat $RECENT_COMMITS_FILE
+echo " "
 
 # Update the last commit hash on file
 git -C $GIT_SOURCE rev-parse HEAD > $LAST_COMMIT_FILE

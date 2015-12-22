@@ -22,17 +22,17 @@ cd $SOURCE_DIR
 
 echo "Zipping dSYM"
 zip -r "$DSYM_FILE.zip" "$DSYM_FILE"
-echo""
+echo " "
 
 echo "Fetching commit logs"
 RECENT_COMMITS_FILE="/Users/Shared/XcodeServer/recentCommits.log"
 RECENT_COMMITS=$(<$RECENT_COMMITS_FILE)
 echo $RECENT_COMMITS
-echo ""
+echo " "
 
-if [ ${#RECENT_COMMITS} > 0 ]; then
+if [ "$RECENT_COMMITS" == "" ]; then
+	echo "No changes! NOT Uploading to Hockey App"
+else
 	echo "Upload to Hockey App"
 	ipa distribute:hockeyapp -a 11f7e9a290884cf48509e5155db20145 --release beta --notes "$RECENT_COMMITS"
-else
-	echo "No changes! NOT Uploading to Hockey App"
 fi
