@@ -3,6 +3,9 @@
 # Automatic build number
 #
 
+echo "Handling automatic build number"
+echo "-------------------------------"
+
 PLIST_FILE="${XCS_SOURCE_DIR}/FlintCreditCard/FlintCardScanner/FlintCardScanner-Info.plist"
 LAST_BUILD_FILE="/Users/Shared/XcodeServer/lastBuildInfo.log"
 
