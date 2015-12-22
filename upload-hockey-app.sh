@@ -38,6 +38,7 @@ else
 	PLIST_FILE="$SOURCE_DIR/FlintCreditCard/FlintCardScanner/FlintCardScanner-Info.plist"
 	PLIST_BUILD_NUM_STR=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$PLIST_FILE")
 	
+	echo "Hockey App API Key: $1"
 	echo "Upload to Hockey App Build $PLIST_BUILD_NUM_STR"
-	ipa distribute:hockeyapp -a $0 --release beta --notes "$RECENT_COMMITS"
+	ipa distribute:hockeyapp -a "$1" --release beta --notes "$RECENT_COMMITS"
 fi
