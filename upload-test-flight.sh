@@ -42,5 +42,5 @@ else
 	PLIST_BUILD_NUM_STR=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$PLIST_FILE")
 	
 	echo "Upload to TestFlight Build $PLIST_BUILD_NUM_STR"
-	ipa distribute:itunesconnect -a $ITUNES_ACCOUNT -p $ITUNES_PASSWORD --save-keychain --apple-id $ITUNES_APP_ID --upload  
+	ipa distribute:itunesconnect -a $1 -p $2 --save-keychain --apple-id $3 --upload  
 fi
