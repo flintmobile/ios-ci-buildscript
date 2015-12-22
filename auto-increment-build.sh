@@ -12,14 +12,14 @@ LAST_BUILD_FILE="/Users/Shared/XcodeServer/lastBuildInfo.log"
 # Getting the plist build number
 PLIST_BUILD_NUM_STR=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$PLIST_FILE")
 PLIST_BUILD_NUM=$(($PLIST_BUILD_NUM_STR+0))
-echo "next plist build: $PLIST_BUILD_NUM"
+echo "current plist build: $PLIST_BUILD_NUM"
 
 # Getting the server last saved automatic build number
 LAST_BUILD_INFO_STRING=$(<$LAST_BUILD_FILE)
 LAST_BUILD_INFO=($LAST_BUILD_INFO_STRING)
 LAST_BUILD_NUM_STR=${LAST_BUILD_INFO[0]}
 LAST_BUILD_NUM=$(($LAST_BUILD_NUM_STR+0))
-echo "next ci server build: $LAST_BUILD_NUM"
+echo "current ci server build: $LAST_BUILD_NUM"
 
 BUILD_NUM=$LAST_BUILD_NUM
 if [ $PLIST_BUILD_NUM -gt $LAST_BUILD_NUM ]; then
