@@ -39,5 +39,5 @@ else
 	PLIST_BUILD_NUM_STR=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$PLIST_FILE")
 	
 	echo "Upload to Hockey App Build $PLIST_BUILD_NUM_STR"
-	ipa distribute:hockeyapp -a $HOCKEY_APP_API_KEY --release beta --notes "$RECENT_COMMITS"
+	ipa distribute:hockeyapp -a $0 --release beta --notes "$RECENT_COMMITS"
 fi
