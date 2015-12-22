@@ -23,6 +23,7 @@ if [ $PLIST_BUILD_NUM -gt $LAST_BUILD_NUM ]; then
 	BUILD_NUM=$PLIST_BUILD_NUM
 fi
 echo "Using build number: $BUILD_NUM"
+echo ""
 
 # Comparing commmit hash to see if we actually have changes
 LAST_BUILD_HASH=${LAST_BUILD_INFO[1]}
@@ -30,7 +31,7 @@ echo "Last build hash: $LAST_BUILD_HASH"
 
 GIT_SOURCE="${XCS_SOURCE_DIR}/FlintCreditCard"
 LATEST_COMMIT_HASH=$(git -C $GIT_SOURCE rev-parse HEAD)
-echo "Latest commit hash: $LASTEST_COMMIT_HASH"
+echo "Latest commit hash: $LATEST_COMMIT_HASH"
 
 if [ $LAST_BUILD_HASH == $LATEST_COMMIT_HASH ]; then
 	echo "No new commit, not increment build"
@@ -40,6 +41,7 @@ else
 	/usr/libexec/Plistbuddy -c "Set CFBundleVersion $BUILD_NUM" "$PLIST_FILE"
 fi
 
+echo ""
 echo "Clean up - Update last build info"
 echo "$BUILD_NUM $LATEST_COMMIT_HASH"> $LAST_BUILD_FILE
 cat $LAST_BUILD_FILE
