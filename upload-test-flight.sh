@@ -23,7 +23,7 @@ if [ "$RECENT_COMMITS" == "" ]; then
 else
 	# Using the assets built by xcode server
 	cd $SOURCE_DIR
-	SUB_FOLDER="Prodution Product"
+	SUB_FOLDER="ProductionIPA"
 	mkdir $SUB_FOLDER
 	
 	echo "Copy ipa to source folder"
@@ -32,7 +32,7 @@ else
 	echo "Copy dsym to source folder"
 	cp -R "$DSYM_DIR/dSYMs/$DSYM_FILE" "$SOURCE_DIR/$SUB_FOLDER"
 
-	cd $SUB_FOLDER
+	cd "$SUB_FOLDER"
 	echo "Zipping dSYM"
 	zip -r "$DSYM_FILE.zip" "$DSYM_FILE"
 	echo " "
