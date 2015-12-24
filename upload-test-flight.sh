@@ -27,16 +27,12 @@ else
 	mkdir $SUB_FOLDER
 	
 	echo "Copy ipa to source folder"
-	ls "${XCS_OUTPUT_DIR}"
-	ls "${XCS_OUTPUT_DIR}/ExportedProduct"
-	ls "$IPA_DIR"
 	cp "$IPA_DIR/FlintCardScanner.ipa" "$SOURCE_DIR/$SUB_FOLDER/FlintCardScanner.ipa"
 
 	echo "Copy dsym to source folder"
 	cp -R "$DSYM_DIR/dSYMs/$DSYM_FILE" "$SOURCE_DIR/$SUB_FOLDER"
 
 	cd "$SUB_FOLDER"
-	ls
 	echo "Zipping dSYM"
 	zip -r "$DSYM_FILE.zip" "$DSYM_FILE"
 	echo " "

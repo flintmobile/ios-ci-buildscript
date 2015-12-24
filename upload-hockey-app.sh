@@ -22,13 +22,17 @@ if [ "$RECENT_COMMITS" == "" ]; then
 	echo "No changes! NOT Uploading to Hockey App"
 else
 	# Using the assets built by xcode server
+	cd $SOURCE_DIR
+	SUB_FOLDER="StagingIPA"
+	mkdir $SUB_FOLDER
+	
 	echo "Copy ipa to source folder"
-	cp "$IPA_DIR/FlintCardScanner Staging.ipa" "$SOURCE_DIR/FlintCardScanner.ipa"
+	cp "$IPA_DIR/FlintCardScanner Staging.ipa" "$SOURCE_DIR/$SUB_FOLDER/FlintCardScanner.ipa"
 
 	echo "Copy dsym to source folder"
-	cp -R "$DSYM_DIR/dSYMs/$DSYM_FILE" "$SOURCE_DIR/"
+	cp -R "$DSYM_DIR/dSYMs/$DSYM_FILE" "$SOURCE_DIR/$SUB_FOLDER/"
 
-	cd $SOURCE_DIR
+	cd $SUB_FOLDER
 
 	echo "Zipping dSYM"
 	zip -r "$DSYM_FILE.zip" "$DSYM_FILE"
