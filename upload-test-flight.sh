@@ -33,6 +33,8 @@ else
 	cp -R "$DSYM_DIR/dSYMs/$DSYM_FILE" "$SOURCE_DIR/$SUB_FOLDER"
 
 	cd "$SUB_FOLDER"
+	pwd
+	ls
 	echo "Zipping dSYM"
 	zip -r "$DSYM_FILE.zip" "$DSYM_FILE"
 	echo " "
