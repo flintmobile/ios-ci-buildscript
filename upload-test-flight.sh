@@ -27,6 +27,8 @@ else
 	mkdir $SUB_FOLDER
 	
 	echo "Copy ipa to source folder"
+	ls "${XCS_OUTPUT_DIR}"
+	ls "${XCS_OUTPUT_DIR}/ExportedProduct"
 	ls "$IPA_DIR"
 	cp "$IPA_DIR/FlintCardScanner.ipa" "$SOURCE_DIR/$SUB_FOLDER/FlintCardScanner.ipa"
 
