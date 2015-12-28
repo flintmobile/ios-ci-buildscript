@@ -13,8 +13,15 @@ DSYM_DIR="${XCS_OUTPUT_DIR}/FlintCardScanner.xcarchive"
 DSYM_FILE="FlintCardScanner.app.dSYM"
 
 echo "Fetching commit logs"
-RECENT_COMMITS_FILE="/Users/Shared/XcodeServer/recentCommits_Prod.log"
-RECENT_COMMITS=$(<$RECENT_COMMITS_FILE)
+
+# Geting last commit hash
+LAST_COMMIT_FILE="/Users/Shared/XcodeServer/lastCommitHash_Prod.log"
+COMMIT_HASH=$(<$LAST_COMMIT_FILE)
+
+# Fetching logs of all commit newer than that hash
+GIT_SOURCE="$SOURCE_DIR/FlintCreditCard"
+RECENT_COMMITS=$(git -C $GIT_SOURCE log --oneline --no-merges $COMMIT_HASH...HEAD)
+
 echo $RECENT_COMMITS
 echo " "
 
@@ -44,3 +51,6 @@ else
 	echo "Upload to TestFlight Build $PLIST_BUILD_NUM_STR"
 	ipa distribute:itunesconnect -a $1 -p $2 --save-keychain --apple-id $3 --upload  
 fi
+
+# Update the last commit hash on file
+git -C $GIT_SOURCE rev-parse HEAD > $LAST_COMMIT_FILE
