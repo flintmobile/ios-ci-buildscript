@@ -52,7 +52,7 @@ else
 	if [ "$2" == "" ]; then
 		ipa distribute:itunesconnect -a $1 --apple-id $3 --upload --verbose
 	else
-		ipa distribute:itunesconnect -a $1 -p $2 --save-keychain --apple-id $3 --upload --verbose
+		ipa distribute:itunesconnect -a $1 -p $2 --apple-id $3 --upload --verbose
 	fi  
 fi
 
