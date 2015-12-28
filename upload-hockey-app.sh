@@ -19,7 +19,7 @@ LAST_COMMIT_FILE="/Users/Shared/XcodeServer/lastCommitHash.log"
 COMMIT_HASH=$(<$LAST_COMMIT_FILE)
 
 # Fetching logs of all commit newer than that hash
-GIT_SOURCE="${XCS_SOURCE_DIR}/FlintCreditCard"
+GIT_SOURCE="$SOURCE_DIR/FlintCreditCard"
 RECENT_COMMITS=$(git -C $GIT_SOURCE log --oneline --no-merges $COMMIT_HASH...HEAD)
 
 echo $RECENT_COMMITS
