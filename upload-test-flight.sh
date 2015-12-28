@@ -49,7 +49,11 @@ else
 	PLIST_BUILD_NUM_STR=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$PLIST_FILE")
 	
 	echo "Upload to TestFlight Build $PLIST_BUILD_NUM_STR"
-	ipa distribute:itunesconnect -a $1 -p $2 --save-keychain --apple-id $3 --upload  
+	if [ "$2" == "" ]; then
+		ipa distribute:itunesconnect -a $1 --apple-id $3 --upload
+	else
+		ipa distribute:itunesconnect -a $1 -p $2 --save-keychain --apple-id $3 --upload
+	fi  
 fi
 
 # Update the last commit hash on file
