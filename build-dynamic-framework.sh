@@ -6,8 +6,41 @@
 # Location: XCode > Edit Scheme > Archive > Post-actions
 #
 
+LOG_FILE="/tmp/xcode_build_dynamic_framework.log"
+
+function usage()
+{
+    echo -e "Building dynamic framework with all architectures supported"
+    echo "Options:"
+	echo "========"
+    echo -e "\t-h --help"
+    echo -e "\t-l --log Where to stored the log. Default to $LOG_FILE"
+    echo " "
+}
+
+# Argument Parsing
+while [ "$1" != "" ]; do
+    PARAM=`echo $1 | awk -F= '{print $1}'`
+    VALUE=`echo $1 | sed 's/^[^=]*=//g'`
+    case $PARAM in
+        -h | --help)
+            usage
+            exit
+            ;;
+        -l | --log)
+            LOG_FILE=$VALUE
+            ;;
+        *)
+            echo "ERROR: unknown parameter \"$PARAM\""
+            usage
+            exit 1
+            ;;
+    esac
+    shift
+done
+
 # Redirect all output to log file
-exec > /tmp/xcode_build_dynamic_framework.log 2>&1
+exec > $LOG_FILE 2>&1
 
 set -e
 PRODUCT_FRAMEWORK="${TARGET_NAME}.framework"
