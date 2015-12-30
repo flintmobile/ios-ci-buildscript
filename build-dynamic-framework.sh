@@ -10,8 +10,9 @@ LOG_FILE="/tmp/xcode_build_dynamic_framework.log"
 
 function usage()
 {
-    echo -e "Building dynamic framework with all architectures supported"
-    echo "Options:"
+    echo "Building dynamic framework with all architectures supported. This script is ran on the CI Server after FlintConnectSDK scheme archive succesfully"
+    echo "Location: XCode > Edit Scheme > Archive > Post-actions"
+	echo "Options:"
 	echo "========"
     echo -e "\t-h --help"
     echo -e "\t-l --log Where to stored the log. Default to $LOG_FILE"
