@@ -1,6 +1,9 @@
 #!/bin/bash
 #
-# Build dynamic framework for all architecture
+# Build dynamic framework for all architectures
+#
+# This script is ran on the CI Server after FlintConnectSDK scheme archive succesfully
+# Location: XCode > Edit Scheme > Archive > Post-actions
 #
 
 # Redirect all output to log file
