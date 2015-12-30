@@ -15,7 +15,7 @@ DSYM_FILE="FlintCardScanner.app.dSYM"
 echo "Fetching commit logs"
 
 # Geting last commit hash
-LAST_COMMIT_FILE="/Users/Shared/XcodeServer/lastCommitHash_Prod.log"
+LAST_COMMIT_FILE="/Users/Shared/XcodeServer/FlintCardScanner/Production/lastCommitHash.log"
 COMMIT_HASH=$(<$LAST_COMMIT_FILE)
 
 # Fetching logs of all commit newer than that hash

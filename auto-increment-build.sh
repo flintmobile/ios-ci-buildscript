@@ -7,7 +7,7 @@ echo "Handling automatic build number"
 echo "-------------------------------"
 
 PLIST_FILE="${XCS_SOURCE_DIR}/FlintCreditCard/FlintCardScanner/FlintCardScanner-Info.plist"
-LAST_BUILD_FILE="/Users/Shared/XcodeServer/lastBuildInfo.log"
+LAST_BUILD_FILE="/Users/Shared/XcodeServer/FlintCardScanner/lastBuildInfo.log"
 
 # Getting the plist build number
 PLIST_BUILD_NUM_STR=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$PLIST_FILE")
