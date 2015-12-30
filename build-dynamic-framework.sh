@@ -27,21 +27,21 @@ if [ "${CONFIGURATION}" = "Release" ]; then
 	if [ -d "$DEVICE_BIN" ]; then
 		DEVICE_PATH="$ARCHIVE_PATH/Release"
 		mkdir "$DEVICE_PATH"
-		echo "Copy framework built for device to $DEVICE_PATH\n"
+		echo "Copy framework built for device to $DEVICE_PATH"
 		cp -r "$DEVICE_BIN" "$DEVICE_PATH"
-		echo "Create placeholder .framework to build final product\n"
+		echo "Create placeholder .framework to build final product"
 		cp -r "$DEVICE_BIN" "$ARCHIVE_PATH"
 	fi
 	
 	if [ -d "$SIMULATOR_BIN" ]; then
 		SIMULATOR_PATH="$ARCHIVE_PATH/Debug"
 		mkdir "$SIMULATOR_PATH"
-		echo "Copy framework built for simulator to $SIMULATOR_PATH\n"
+		echo "Copy framework built for simulator to $SIMULATOR_PATH"
 		cp -r "$SIMULATOR_BIN" "$SIMULATOR_PATH"
 	fi
 	
 	PRODUCT_BIN="$ARCHIVE_PATH/$PRODUCT_FRAMEWORK"
-	echo "Combined the architecture for final product at $PRODUCT_BIN\n"
+	echo "Combined the architecture for final product at $PRODUCT_BIN"
 	lipo -create "$DEVICE_BIN/${TARGET_NAME}" "$SIMULATOR_BIN/${TARGET_NAME}" -output "$PRODUCT_BIN/${TARGET_NAME}"
 fi
 
