@@ -60,7 +60,7 @@ if [ "${CONFIGURATION}" = "Release" ]; then
 		mkdir "$DEVICE_PATH"
 		echo "Copy framework built for device to $DEVICE_PATH"
 		cp -r "$DEVICE_BIN" "$DEVICE_PATH"
-		echo "Create placeholder .framework to build final product"
+		echo "Create placeholder framework to build final product"
 		cp -r "$DEVICE_BIN" "$ARCHIVE_PATH"
 	fi
 	
