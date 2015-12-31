@@ -1,0 +1,5 @@
+
+Copy framework built for device to /Users/Shared/XcodeServer/FlintConnectSDK/_Archive/Release
+Create placeholder .framework to build final product
+Copy framework built for simulator to /Users/Shared/XcodeServer/FlintConnectSDK/_Archive/Debug
+Combined the architecture for final product at /Users/Shared/XcodeServer/FlintConnectSDK/_Archive/FlintConnectSDK.framework
