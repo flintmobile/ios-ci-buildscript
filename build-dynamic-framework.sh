@@ -41,9 +41,10 @@ while [ "$1" != "" ]; do
 done
 
 # Redirect all output to log file
-exec > $LOG_FILE 2>&1
-
+exec > /tmp/xcode_build_dynamic_framework.log 2>&1
 set -e
+
+echo $LOG_FILE
 PRODUCT_FRAMEWORK="${TARGET_NAME}.framework"
 
 DEVICE_DIR="${OBJROOT}/UninstalledProducts/iphoneos"
