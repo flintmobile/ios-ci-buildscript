@@ -6,7 +6,8 @@
 # Location: XCode > Edit Scheme > Archive > Post-actions
 #
 
-LOG_FILE="/tmp/xcode_build_dynamic_framework.log"
+# Redirect all output to log file
+exec > /tmp/xcode_build_dynamic_framework.log 2>&1
 
 function usage()
 {
@@ -28,9 +29,6 @@ while [ "$1" != "" ]; do
             usage
             exit
             ;;
-        -l | --log)
-            LOG_FILE=$VALUE
-            ;;
         *)
             echo "ERROR: unknown parameter \"$PARAM\""
             usage
@@ -40,8 +38,6 @@ while [ "$1" != "" ]; do
     shift
 done
 
-# Redirect all output to log file
-exec > /tmp/xcode_build_dynamic_framework.log 2>&1
 set -e
 
 echo $LOG_FILE
