@@ -39,8 +39,6 @@ while [ "$1" != "" ]; do
 done
 
 set -e
-
-echo $LOG_FILE
 PRODUCT_FRAMEWORK="${TARGET_NAME}.framework"
 
 DEVICE_DIR="${OBJROOT}/UninstalledProducts/iphoneos"
