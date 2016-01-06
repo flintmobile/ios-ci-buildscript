@@ -39,8 +39,6 @@ while [ "$1" != "" ]; do
 done
 
 set -e
-
-echo $LOG_FILE
 PRODUCT_FRAMEWORK="${TARGET_NAME}.framework"
 
 DEVICE_DIR="${OBJROOT}/UninstalledProducts/iphoneos"
@@ -60,7 +58,7 @@ if [ "${CONFIGURATION}" = "Release" ]; then
 		mkdir "$DEVICE_PATH"
 		echo "Copy framework built for device to $DEVICE_PATH"
 		cp -r "$DEVICE_BIN" "$DEVICE_PATH"
-		echo "Create placeholder .framework to build final product"
+		echo "Create placeholder framework to build final product"
 		cp -r "$DEVICE_BIN" "$ARCHIVE_PATH"
 	fi
 	
