@@ -1,4 +1,12 @@
-Manual - Generated Copy framework built for device to /Users/Shared/XcodeServer/FlintConnectSDK/_Archive/Release
+Copy framework built for device to /Users/Shared/XcodeServer/FlintConnectSDK/_Archive/Release
 Create placeholder framework to build final product
 Combined the architecture for final product at /Users/Shared/XcodeServer/FlintConnectSDK/_Archive/FlintConnectSDK.framework
+2016-01-07 10:18:36.898 xcodebuild[2493:13711] [MT] DVTDeveloperPaths: WARNING: Environment variable XCODE_DEVELOPER_DIR_PATH is set, but is not an absolute path. The variable will be ignored. ()
+2016-01-07 10:18:37.279 xcodebuild[2493:13711] [MT] DVTDeveloperPaths: WARNING: Environment variable XCODE_DEVELOPER_DIR_PATH is set, but is not an absolute path. The variable will be ignored. ()
+2016-01-07 10:18:37.343 xcodebuild[2493:13711] [MT] DVTDeveloperPaths: WARNING: Environment variable XCODE_DEVELOPER_DIR_PATH is set, but is not an absolute path. The variable will be ignored. ()
+2016-01-07 10:18:37.354 xcodebuild[2493:13711] [MT] DVTDeveloperPaths: WARNING: Environment variable XCODE_DEVELOPER_DIR_PATH is set, but is not an absolute path. The variable will be ignored. ()
+2016-01-07 10:18:37.365 xcodebuild[2493:13711] [MT] DVTDeveloperPaths: WARNING: Environment variable XCODE_DEVELOPER_DIR_PATH is set, but is not an absolute path. The variable will be ignored. ()
+2016-01-07 10:18:37.377 xcodebuild[2493:13711] [MT] DVTDeveloperPaths: WARNING: Environment variable XCODE_DEVELOPER_DIR_PATH is set, but is not an absolute path. The variable will be ignored. ()
+2016-01-07 10:18:37.388 xcodebuild[2493:13711] [MT] DVTDeveloperPaths: WARNING: Environment variable XCODE_DEVELOPER_DIR_PATH is set, but is not an absolute path. The variable will be ignored. ()
+2016-01-07 10:18:37.400 xcodebuild[2493:13711] [MT] DVTDeveloperPaths: WARNING: Environment variable XCODE_DEVELOPER_DIR_PATH is set, but is not an absolute path. The variable will be ignored. ()
 fatal error: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo: can't open input file: /Library/Developer/XcodeServer/Integrations/Caches/d09dcb79f94c89e16d78b09aab716509/DerivedData/Build/Intermediates/ArchiveIntermediates/FlintConnectSDK/BuildProductsPath/../../../../Products/Debug-iphonesimulator/FlintConnectSDK.framework/FlintConnectSDK (No such file or directory)
