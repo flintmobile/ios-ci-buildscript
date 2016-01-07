@@ -45,10 +45,6 @@ DEVICE_DIR="${OBJROOT}/UninstalledProducts/iphoneos"
 DEVICE_BIN="$DEVICE_DIR/$PRODUCT_FRAMEWORK"
 
 SIMULATOR_DIR="${SYMROOT}/../../../../Products/Debug-iphonesimulator"
-echo "================="
-ls "$SIMULATOR_DIR"
-echo "================="
-
 SIMULATOR_BIN="$SIMULATOR_DIR/$PRODUCT_FRAMEWORK"
 
 SHARED_DIR="/Users/Shared/XcodeServer/FlintConnectSDK"
