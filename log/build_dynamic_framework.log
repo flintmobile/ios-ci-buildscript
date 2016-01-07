@@ -1,2 +1,11 @@
 =================
-ls: /Library/Developer/XcodeServer/Integrations/Caches/b8794b804f89d885f57c1b440b008158/DerivedData/Build/Intermediates/ArchiveIntermediates/FlintConnectSDK/BuildProductsPath/../../../../Products/Debug-iphonesimulator: No such file or directory
+FlintConnectSDK.framework
+FlintConnectSDK.framework.dSYM
+FlintConnectSDK.framework.securedPlist
+FlintConnectTests.xctest
+FlintConnectTests.xctest.dSYM
+=================
+Copy framework built for device to /Users/Shared/XcodeServer/FlintConnectSDK/_Archive/Release
+Create placeholder framework to build final product
+Copy framework built for simulator to /Users/Shared/XcodeServer/FlintConnectSDK/_Archive/Debug
+Combined the architecture for final product at /Users/Shared/XcodeServer/FlintConnectSDK/_Archive/FlintConnectSDK.framework
