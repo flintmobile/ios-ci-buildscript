@@ -1,4 +1,0 @@
-Copy framework built for device to /Users/Shared/XcodeServer/FlintConnectSDK/_Archive/Release
-Create placeholder framework to build final product
-Combined the architecture for final product at /Users/Shared/XcodeServer/FlintConnectSDK/_Archive/FlintConnectSDK.framework
-fatal error: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo: can't open input file: /Library/Developer/XcodeServer/Integrations/Caches/d09dcb79f94c89e16d78b09aab716509/DerivedData/Build/Intermediates/ArchiveIntermediates/FlintConnectSDK/BuildProductsPath/../../../../Products/Debug-iphonesimulator/FlintConnectSDK.framework/FlintConnectSDK (No such file or directory)
