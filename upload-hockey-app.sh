@@ -8,8 +8,7 @@ exec > /tmp/xcode_upload_hockey_app.log 2>&1
 
 function usage()
 {
-    echo "Building dynamic framework with all architectures supported. This script is ran on the CI Server after FlintConnectSDK scheme archive succesfully"
-    echo "Location: XCode > Edit Scheme > Archive > Post-actions"
+    echo "Copy the ipa build by the xcodeServer and upload it to Hockey App. This script is ran as an after trigger for the bot that archive the FlintCardScanner Staging scheme"
 	echo "Options:"
 	echo "========"
     echo -e "\t-h --help"
