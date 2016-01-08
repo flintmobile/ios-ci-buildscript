@@ -32,15 +32,12 @@ while [ "$1" != "" ]; do
             usage
             exit
             ;;
-        *)
         -a | --account)
             HOCKEY_APP_API_KEY="$VALUE"
             ;;
-        *)
         --appstore)
             IS_APP_STORE_BUILD=1
             ;;
-        *)
         -b | --branch)
             BRANCH="$VALUE"
             ;;
