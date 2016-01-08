@@ -99,7 +99,13 @@ else
 	PLIST_BUILD_NUM_STR=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$PLIST_FILE")
 	
 	echo "Upload to Hockey App Build $PLIST_BUILD_NUM_STR"
-	ipa distribute:hockeyapp -a "$HOCKEY_APP_API_KEY" --release beta --notes "$RECENT_COMMITS"
+	NOTES="$RECENT_COMMITS"
+	if [ IS_APP_STORE_BUILD ]; then
+		NOTES="Release Candidate: $RECENT_COMMITS"
+	fi
+	
+	echo "$NOTES"
+	#ipa distribute:hockeyapp -a "$HOCKEY_APP_API_KEY" --release beta --notes "$NOTES"
 fi
 
 # Update the last commit hash on file
