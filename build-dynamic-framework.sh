@@ -16,7 +16,6 @@ function usage()
 	echo "Options:"
 	echo "========"
     echo -e "\t-h --help"
-    echo -e "\t-l --log Where to stored the log. Default to $LOG_FILE"
     echo " "
 }
 

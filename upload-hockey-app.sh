@@ -1,8 +1,57 @@
 #!/bin/bash
 #
 # Copy the ipa build by the xcodeServer and upload it to Hockey App
-# Note: The locations may be different for every xcode release.
+# Note: The IPA_DIR may be different for every xcode release.
 #
+# Redirect all output to log file
+exec > /tmp/xcode_upload_hockey_app.log 2>&1
+
+function usage()
+{
+    echo "Building dynamic framework with all architectures supported. This script is ran on the CI Server after FlintConnectSDK scheme archive succesfully"
+    echo "Location: XCode > Edit Scheme > Archive > Post-actions"
+	echo "Options:"
+	echo "========"
+    echo -e "\t-h --help"
+	echo -e "\t-a --account Hockey App API Key. This is required"
+	echo -e "\t--appstore Mark this as an app store build in release note"
+	echo -e "\t-b --branch The branch to apply this script to. Default to dev"
+    echo " "
+}
+
+# Argument Parsing
+HOCKEY_APP_API_KEY=""
+IS_APP_STORE_BUILD=0
+BRANCH="dev"
+
+while [ "$1" != "" ]; do
+    PARAM=`echo $1 | awk -F= '{print $1}'`
+    VALUE=`echo $1 | sed 's/^[^=]*=//g'`
+    case $PARAM in
+        -h | --help)
+            usage
+            exit
+            ;;
+        *)
+        -a | --account)
+            HOCKEY_APP_API_KEY="$VALUE"
+            ;;
+        *)
+        --appstore)
+            IS_APP_STORE_BUILD=1
+            ;;
+        *)
+        -b | --branch)
+            BRANCH="$VALUE"
+            ;;
+        *)
+            echo "ERROR: unknown parameter \"$PARAM\""
+            usage
+            exit 1
+            ;;
+    esac
+    shift
+done
 
 echo "Preparing to distribute app via Hockey App"
 echo "------------------------------------------"
@@ -15,7 +64,7 @@ DSYM_FILE="FlintCardScanner.app.dSYM"
 echo "Fetching commit logs"
 
 # Geting last commit hash
-LAST_COMMIT_FILE="/Users/Shared/XcodeServer/FlintCardScanner/Staging/lastCommitHash.log"
+LAST_COMMIT_FILE="/Users/Shared/XcodeServer/FlintCardScanner/$BRANCH/Staging/lastCommitHash.log"
 COMMIT_HASH=$(<$LAST_COMMIT_FILE)
 
 # Fetching logs of all commit newer than that hash
@@ -49,9 +98,8 @@ else
 	PLIST_FILE="$SOURCE_DIR/FlintCreditCard/FlintCardScanner/FlintCardScanner-Info.plist"
 	PLIST_BUILD_NUM_STR=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$PLIST_FILE")
 	
-	echo "Hockey App API Key: $1"
 	echo "Upload to Hockey App Build $PLIST_BUILD_NUM_STR"
-	ipa distribute:hockeyapp -a "$1" --release beta --notes "$RECENT_COMMITS"
+	ipa distribute:hockeyapp -a "$HOCKEY_APP_API_KEY" --release beta --notes "$RECENT_COMMITS"
 fi
 
 # Update the last commit hash on file
