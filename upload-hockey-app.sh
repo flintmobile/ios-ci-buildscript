@@ -3,8 +3,6 @@
 # Copy the ipa build by the xcodeServer and upload it to Hockey App
 # Note: The IPA_DIR may be different for every xcode release.
 #
-# Redirect all output to log file
-exec > /tmp/xcode_upload_hockey_app.log 2>&1
 
 function usage()
 {
