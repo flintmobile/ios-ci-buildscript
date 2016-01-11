@@ -6,7 +6,8 @@
 echo "Handling automatic build number"
 echo "-------------------------------"
 
-PLIST_FILE="${XCS_SOURCE_DIR}/FlintCreditCard/FlintCardScanner/FlintCardScanner-Info.plist"
+SOURCE_DIR="${XCS_SOURCE_DIR}/FlintCreditCard"
+PLIST_FILE="$SOURCE_DIR/FlintCardScanner/FlintCardScanner-Info.plist"
 LAST_BUILD_FILE="/Users/Shared/XcodeServer/FlintCardScanner/lastBuildInfo.log"
 
 # Getting the plist build number
@@ -32,8 +33,7 @@ echo " "
 LAST_BUILD_HASH=${LAST_BUILD_INFO[1]}
 echo "Last build hash: $LAST_BUILD_HASH"
 
-GIT_SOURCE="${XCS_SOURCE_DIR}/FlintCreditCard"
-LATEST_COMMIT_HASH=$(git -C $GIT_SOURCE rev-parse HEAD)
+LATEST_COMMIT_HASH=$(git -C "$SOURCE_DIR" rev-parse HEAD)
 echo "Latest commit hash: $LATEST_COMMIT_HASH"
 
 if [ $LAST_BUILD_HASH == $LATEST_COMMIT_HASH ]; then

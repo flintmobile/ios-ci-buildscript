@@ -67,7 +67,7 @@ LAST_COMMIT_FILE="/Users/Shared/XcodeServer/FlintCardScanner/$BRANCH/Production/
 COMMIT_HASH=$(<$LAST_COMMIT_FILE)
 
 # Fetching logs of all commit newer than that hash
-RECENT_COMMITS=$(git -C $SOURCE_DIR log --oneline --no-merges $COMMIT_HASH...HEAD)
+RECENT_COMMITS=$(git -C "$SOURCE_DIR" log --oneline --no-merges $COMMIT_HASH...HEAD)
 
 echo $RECENT_COMMITS
 echo " "
@@ -76,7 +76,7 @@ if [ "$RECENT_COMMITS" == "" ]; then
 	echo "No changes! NOT Uploading to TestFlight"
 else
 	# Using the assets built by xcode server
-	cd $SOURCE_DIR
+	cd "$SOURCE_DIR"
 	SUB_FOLDER="ProductionIPA"
 	mkdir $SUB_FOLDER
 	
@@ -100,4 +100,4 @@ else
 fi
 
 # Update the last commit hash on file
-git -C $SOURCE_DIR rev-parse HEAD > $LAST_COMMIT_FILE
+git -C "$SOURCE_DIR" rev-parse HEAD > $LAST_COMMIT_FILE
