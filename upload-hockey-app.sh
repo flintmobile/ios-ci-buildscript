@@ -98,8 +98,7 @@ else
 		NOTES="Release Candidate: $RECENT_COMMITS"
 	fi
 	
-	echo "$NOTES"
-	#ipa distribute:hockeyapp -a "$HOCKEY_APP_API_KEY" --release beta --notes "$NOTES"
+	ipa distribute:hockeyapp -a "$HOCKEY_APP_API_KEY" --release beta --notes "$NOTES"
 fi
 
 # Update the last commit hash on file
