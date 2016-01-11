@@ -4,6 +4,54 @@
 # Note: The locations may be different for every xcode release.
 #
 
+function usage()
+{
+    echo "Copy the ipa build by the xcodeServer and upload it to Hockey App. This script is ran as an after trigger for the bot that archive the FlintCardScanner Staging scheme"
+	echo "Options:"
+	echo "========"
+    echo -e "\t-h --help"
+	echo -e "\t-a --account the username for Itunes Connect. This is required"
+	echo -e "\t-p --password the password for Itunes Connect. This is required"
+	echo -e "\t--apple-id the apple id to identify your app. This information can be found on the App page. Also required"
+	echo -e "\t-b --branch The branch to apply this script to. Default to dev"
+    echo " "
+}
+
+# Argument Parsing
+ITUNE_USER=""
+ITUNE_PWD=""
+ITUNE_APP_ID=""
+BRANCH="dev"
+
+while [ "$1" != "" ]; do
+    PARAM=`echo $1 | awk -F= '{print $1}'`
+    VALUE=`echo $1 | sed 's/^[^=]*=//g'`
+    case $PARAM in
+        -h | --help)
+            usage
+            exit
+            ;;
+        -a | --account)
+            ITUNE_USER="$VALUE"
+            ;;
+	    -p | --password)
+	        ITUNE_PWD="$VALUE"
+	        ;;
+        --apple-id)
+            ITUNE_APP_ID="$VALUE"
+            ;;
+        -b | --branch)
+            BRANCH="$VALUE"
+            ;;
+        *)
+            echo "ERROR: unknown parameter \"$PARAM\""
+            usage
+            exit 1
+            ;;
+    esac
+    shift
+done
+
 echo "Preparing to distribute app via TestFlight"
 echo "------------------------------------------"
 
@@ -15,7 +63,7 @@ DSYM_FILE="FlintCardScanner.app.dSYM"
 echo "Fetching commit logs"
 
 # Geting last commit hash
-LAST_COMMIT_FILE="/Users/Shared/XcodeServer/FlintCardScanner/Production/lastCommitHash.log"
+LAST_COMMIT_FILE="/Users/Shared/XcodeServer/FlintCardScanner/$BRANCH/Production/lastCommitHash.log"
 COMMIT_HASH=$(<$LAST_COMMIT_FILE)
 
 # Fetching logs of all commit newer than that hash
@@ -49,11 +97,7 @@ else
 	PLIST_BUILD_NUM_STR=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$PLIST_FILE")
 	
 	echo "Upload to TestFlight Build $PLIST_BUILD_NUM_STR"
-	if [ "$2" == "" ]; then
-		ipa distribute:itunesconnect -a $1 --apple-id $3 --upload --verbose
-	else
-		ipa distribute:itunesconnect -a $1 -p $2 --apple-id $3 --upload --verbose
-	fi  
+	ipa distribute:itunesconnect -a "$ITUNE_USER" -p $"$ITUNE_PWD" --apple-id "$ITUNE_APP_ID" --upload --verbose  
 fi
 
 # Update the last commit hash on file
