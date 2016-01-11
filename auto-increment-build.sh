@@ -6,7 +6,7 @@
 echo "Handling automatic build number"
 echo "-------------------------------"
 
-SOURCE_DIR="${XCS_SOURCE_DIR}/FlintCreditCard"
+SOURCE_DIR="${XCS_SOURCE_DIR}/ios-flint-app"
 PLIST_FILE="$SOURCE_DIR/FlintCardScanner/FlintCardScanner-Info.plist"
 LAST_BUILD_FILE="/Users/Shared/XcodeServer/FlintCardScanner/lastBuildInfo.log"
 
