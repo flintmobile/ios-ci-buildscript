@@ -50,7 +50,7 @@ done
 echo "Preparing to distribute app via Hockey App"
 echo "------------------------------------------"
 
-SOURCE_DIR="${XCS_SOURCE_DIR}"
+SOURCE_DIR="${XCS_SOURCE_DIR}/FlintCreditCard"
 IPA_DIR="${XCS_OUTPUT_DIR}/ExportedProduct/Apps"
 DSYM_DIR="${XCS_OUTPUT_DIR}/FlintCardScanner Staging.xcarchive"
 DSYM_FILE="FlintCardScanner.app.dSYM"
@@ -62,8 +62,7 @@ LAST_COMMIT_FILE="/Users/Shared/XcodeServer/FlintCardScanner/$BRANCH/Staging/las
 COMMIT_HASH=$(<$LAST_COMMIT_FILE)
 
 # Fetching logs of all commit newer than that hash
-GIT_SOURCE="$SOURCE_DIR/FlintCreditCard"
-RECENT_COMMITS=$(git -C $GIT_SOURCE log --oneline --no-merges $COMMIT_HASH...HEAD)
+RECENT_COMMITS=$(git -C $SOURCE_DIR log --oneline --no-merges $COMMIT_HASH...HEAD)
 
 echo $RECENT_COMMITS
 echo " "
@@ -89,7 +88,7 @@ else
 	echo " "
 	
 	# Debug current build number
-	PLIST_FILE="$SOURCE_DIR/FlintCreditCard/FlintCardScanner/FlintCardScanner-Info.plist"
+	PLIST_FILE="$SOURCE_DIR/FlintCardScanner/FlintCardScanner-Info.plist"
 	PLIST_BUILD_NUM_STR=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$PLIST_FILE")
 	
 	echo "Upload to Hockey App Build $PLIST_BUILD_NUM_STR"
@@ -102,4 +101,4 @@ else
 fi
 
 # Update the last commit hash on file
-git -C $GIT_SOURCE rev-parse HEAD > $LAST_COMMIT_FILE
+git -C $SOURCE_DIR rev-parse HEAD > $LAST_COMMIT_FILE
