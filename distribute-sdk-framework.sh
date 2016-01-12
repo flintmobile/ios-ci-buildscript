@@ -64,6 +64,7 @@ fi
 #Copy over the products
 echo "Copy to folder $FOLDER for version $SDK_VERSION"
 cd "$DIST_DIR"
+git pull
 if [ -d "$FOLDER" ]; then
 	echo "Remove previous version"
 	rm -rf "$FOLDER"
