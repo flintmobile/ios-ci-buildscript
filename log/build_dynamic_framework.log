@@ -2,6 +2,14 @@ Copy framework built for device to /Users/Shared/XcodeServer/FlintConnectSDK/_Ar
 Create placeholder framework to build final product
 Copy framework built for simulator to /Users/Shared/XcodeServer/FlintConnectSDK/_Archive/Debug
 Combined the architecture for final product at /Users/Shared/XcodeServer/FlintConnectSDK/_Archive/FlintConnectSDK.framework
+2016-01-12 14:51:02.721 xcodebuild[20311:273903] [MT] DVTDeveloperPaths: WARNING: Environment variable XCODE_DEVELOPER_DIR_PATH is set, but is not an absolute path. The variable will be ignored. ()
+2016-01-12 14:51:03.122 xcodebuild[20311:273903] [MT] DVTDeveloperPaths: WARNING: Environment variable XCODE_DEVELOPER_DIR_PATH is set, but is not an absolute path. The variable will be ignored. ()
+2016-01-12 14:51:03.176 xcodebuild[20311:273903] [MT] DVTDeveloperPaths: WARNING: Environment variable XCODE_DEVELOPER_DIR_PATH is set, but is not an absolute path. The variable will be ignored. ()
+2016-01-12 14:51:03.186 xcodebuild[20311:273903] [MT] DVTDeveloperPaths: WARNING: Environment variable XCODE_DEVELOPER_DIR_PATH is set, but is not an absolute path. The variable will be ignored. ()
+2016-01-12 14:51:03.197 xcodebuild[20311:273903] [MT] DVTDeveloperPaths: WARNING: Environment variable XCODE_DEVELOPER_DIR_PATH is set, but is not an absolute path. The variable will be ignored. ()
+2016-01-12 14:51:03.207 xcodebuild[20311:273903] [MT] DVTDeveloperPaths: WARNING: Environment variable XCODE_DEVELOPER_DIR_PATH is set, but is not an absolute path. The variable will be ignored. ()
+2016-01-12 14:51:03.218 xcodebuild[20311:273903] [MT] DVTDeveloperPaths: WARNING: Environment variable XCODE_DEVELOPER_DIR_PATH is set, but is not an absolute path. The variable will be ignored. ()
+2016-01-12 14:51:03.229 xcodebuild[20311:273903] [MT] DVTDeveloperPaths: WARNING: Environment variable XCODE_DEVELOPER_DIR_PATH is set, but is not an absolute path. The variable will be ignored. ()
 Zipping the framework
   adding: FlintConnectSDK.framework/ (stored 0%)
   adding: FlintConnectSDK.framework/_CodeSignature/ (stored 0%)
@@ -37,8 +45,8 @@ Zipping the framework
   adding: FlintConnectSDK.framework/FlintPayment.storyboardc/UIViewController-jpK-Vd-0ju.nib (deflated 35%)
   adding: FlintConnectSDK.framework/FlintPayment.storyboardc/UIViewController-mSs-gd-f2w.nib (deflated 42%)
   adding: FlintConnectSDK.framework/FlintPayment.storyboardc/UIViewController-Q2f-nw-iw2.nib (deflated 40%)
-  adding: FlintConnectSDK.framework/FlintPayment.storyboardc/UIViewController-Tik-7Z-qoF.nib (deflated 35%)
-  adding: FlintConnectSDK.framework/FlintPayment.storyboardc/UIViewController-V28-iZ-Tqs.nib (deflated 34%)
+  adding: FlintConnectSDK.framework/FlintPayment.storyboardc/UIViewController-Tik-7Z-qoF.nib (deflated 34%)
+  adding: FlintConnectSDK.framework/FlintPayment.storyboardc/UIViewController-V28-iZ-Tqs.nib (deflated 35%)
   adding: FlintConnectSDK.framework/FlintPayment.storyboardc/UIViewController-wjn-4G-Ccv.nib (deflated 41%)
   adding: FlintConnectSDK.framework/FlintPayment.storyboardc/UIViewController-Ywi-XC-OVS.nib (deflated 42%)
   adding: FlintConnectSDK.framework/FlintPayment.storyboardc/V28-iZ-Tqs-view-dEz-MH-Xf3.nib (deflated 49%)
@@ -101,7 +109,7 @@ Zipping the framework
   adding: FlintConnectSDK.framework/Headers/FlintTransaction.h (deflated 66%)
   adding: FlintConnectSDK.framework/Headers/FlintTransactionLimits.h (deflated 66%)
   adding: FlintConnectSDK.framework/Headers/FlintUI.h (deflated 69%)
-  adding: FlintConnectSDK.framework/Info.plist (deflated 31%)
+  adding: FlintConnectSDK.framework/Info.plist (deflated 30%)
   adding: FlintConnectSDK.framework/InvoicePaymentLogo@2x.png (deflated 12%)
   adding: FlintConnectSDK.framework/ManualPaymentLogo@2x.png (deflated 6%)
   adding: FlintConnectSDK.framework/MastercardLogo@2x.png (deflated 0%)
