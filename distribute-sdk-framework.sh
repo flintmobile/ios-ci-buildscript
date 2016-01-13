@@ -53,7 +53,7 @@ DIST_DIR="$SHARED_DIR/ios-flint-connect-sdk"
 #determine the sdk version
 SOURCE_DIR="${XCS_SOURCE_DIR}/ios-flint-connect"
 cd "$SOURCE_DIR"
-SDK_VERSION=$(/usr/libexec/PlistBuddy -c "Print :CFBundleShortVersionString" "./Framework/FlintConnect/FlintConnect/Info.plist")
+SDK_VERSION=$(/usr/libexec/PlistBuddy -c "Print :CFBundleShortVersionString" "./Framework/FlintConnect/FlintConnect/Supporting Files/Info.plist")
 FOLDER="$SDK_VERSION"
 
 if [ "$BRANCH" = "dev" ]; then
