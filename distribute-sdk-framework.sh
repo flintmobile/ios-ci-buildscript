@@ -56,6 +56,9 @@ cd "$SOURCE_DIR"
 SDK_VERSION=$(/usr/libexec/PlistBuddy -c "Print :CFBundleShortVersionString" "./Framework/FlintConnect/FlintConnect/Supporting Files/Info.plist")
 FOLDER="$SDK_VERSION"
 
+#grab the latest hash for commit message
+LATEST_HASH=$(git -C $SOURCE_DIR rev-parse HEAD)
+
 if [ "$BRANCH" = "dev" ]; then
 	FOLDER="beta"
 	SDK_VERSION="$SDK_VERSION-beta"
@@ -79,5 +82,5 @@ echo " "
 #distribute
 echo "Commit and upload the framework"
 git add .
-git commit -am "Update SDK for branch:$BRANCH version:$SDK_VERSION integration:${XCS_INTEGRATION_NUMBER}"
+git commit -am "Update SDK version:$SDK_VERSION integration:${XCS_INTEGRATION_NUMBER} branch:$BRANCH hash:$LATEST_HASH"
 git push "https://$GIT_USER:$GIT_PWD@github.com/flintmobile/ios-flint-connect-sdk.git"
