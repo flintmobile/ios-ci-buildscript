@@ -52,6 +52,10 @@ while [ "$1" != "" ]; do
     shift
 done
 
+echo "Adjusting path to find ipa command"
+PATH=~/usr/local/bin:$PATH
+echo $PATH
+
 echo "Preparing to distribute app via TestFlight"
 echo "------------------------------------------"
 
