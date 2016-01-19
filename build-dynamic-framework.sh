@@ -72,6 +72,9 @@ if [ "${CONFIGURATION}" = "Release" ]; then
 	echo "Combined the architecture for final product at $PRODUCT_BIN"
 	lipo -create "$DEVICE_BIN/${TARGET_NAME}" "$SIMULATOR_BIN/${TARGET_NAME}" -output "$PRODUCT_BIN/${TARGET_NAME}"
 	
+	echo "architectures in the binary"
+	lipo -info "$PRODUCT_BIN/${TARGET_NAME}"
+	
 	echo "Zipping the framework"
 	cd "$ARCHIVE_PATH"
 	zip -r "$PRODUCT_FRAMEWORK.zip" "$PRODUCT_FRAMEWORK"
