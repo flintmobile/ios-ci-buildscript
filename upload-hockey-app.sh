@@ -92,7 +92,7 @@ else
 	
 	echo "Upload to Hockey App Build $PLIST_BUILD_NUM_STR"
 	NOTES="$RECENT_COMMITS"
-	if [ $BRANCH="master" ]; then
+	if [ "$BRANCH" = "master" ]; then
 		NOTES="Release Candidate: $RECENT_COMMITS"
 	fi
 	
