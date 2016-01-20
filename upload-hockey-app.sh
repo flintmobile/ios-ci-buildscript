@@ -11,14 +11,12 @@ function usage()
 	echo "========"
     echo -e "\t-h --help"
 	echo -e "\t-a --account Hockey App API Key. This is required"
-	echo -e "\t--appstore Mark this as an app store build in release note"
 	echo -e "\t-b --branch The branch to apply this script to. Default to dev"
     echo " "
 }
 
 # Argument Parsing
 HOCKEY_APP_API_KEY=""
-IS_APP_STORE_BUILD=0
 BRANCH="dev"
 
 while [ "$1" != "" ]; do
@@ -31,9 +29,6 @@ while [ "$1" != "" ]; do
             ;;
         -a | --account)
             HOCKEY_APP_API_KEY="$VALUE"
-            ;;
-        --appstore)
-            IS_APP_STORE_BUILD=1
             ;;
         -b | --branch)
             BRANCH="$VALUE"
@@ -97,7 +92,7 @@ else
 	
 	echo "Upload to Hockey App Build $PLIST_BUILD_NUM_STR"
 	NOTES="$RECENT_COMMITS"
-	if [ IS_APP_STORE_BUILD ]; then
+	if [ $BRANCH="master" ]; then
 		NOTES="Release Candidate: $RECENT_COMMITS"
 	fi
 	
