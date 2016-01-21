@@ -92,8 +92,8 @@ else
 	
 	echo "Upload to Hockey App Build $PLIST_BUILD_NUM_STR"
 	NOTES="$RECENT_COMMITS"
-	if [ "$BRANCH" = "master" ]; then
-		NOTES="Release Candidate: $RECENT_COMMITS"
+	if [ "$BRANCH" == "master" ]; then
+		NOTES="Release Candidate:\n $RECENT_COMMITS"
 	fi
 	
 	ipa distribute:hockeyapp -a "$HOCKEY_APP_API_KEY" --release beta --notes "$NOTES"
