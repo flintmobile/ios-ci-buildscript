@@ -43,19 +43,10 @@ PRODUCT_FRAMEWORK="${TARGET_NAME}.framework"
 DEVICE_DIR="${OBJROOT}/UninstalledProducts/iphoneos"
 DEVICE_BIN="$DEVICE_DIR/$PRODUCT_FRAMEWORK"
 
+# We have to rebuild simulator because xcode bug does not build i386 arch. This bug still exist in xcode 7.2
 SIMULATOR_DIR="${SYMROOT}/../../../../Products"
-
-# We have to rebuild simulator because xcode bug does not build i386 arch
-echo "Debug Source ========"
-ls "${SRCROOT}"
-echo "====================="
-
 xcodebuild -project "${SRCROOT}/FlintConnect.xcodeproj" -target "FlintConnectSDK" -configuration "Release" -sdk iphonesimulator BUILD_DIR="$SIMULATOR_DIR" BUILD_ROOT="$SIMULATOR_DIR" clean build
 SIMULATOR_BIN="$SIMULATOR_DIR/Release-iphonesimulator/$PRODUCT_FRAMEWORK"
-
-echo "Debug Product ========"
-ls "$SIMULATOR_DIR"
-echo "======================"
 
 SHARED_DIR="/Users/Shared/XcodeServer/FlintConnectSDK"
 ARCHIVE_PATH="$SHARED_DIR/_Archive"
