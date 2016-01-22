@@ -51,7 +51,7 @@ ls "${SRCROOT}"
 echo "====================="
 
 rm -rf "$SIMULATOR_DIR/Debug-iphonesimulator"
-xcodebuild -project "${SRCROOT}/Framework/FlintConnect/FlintConnect.xcodeproj" -target "FlintConnectSDK" -configuration "Release" -sdk iphonesimulator BUILD_DIR="$SIMULATOR_DIR" BUILD_ROOT="$SIMULATOR_DIR" clean build
+xcodebuild -project "${SRCROOT}/FlintConnect.xcodeproj" -target "FlintConnectSDK" -configuration "Release" -sdk iphonesimulator BUILD_DIR="$SIMULATOR_DIR" BUILD_ROOT="$SIMULATOR_DIR" clean build
 SIMULATOR_BIN="$SIMULATOR_DIR/Debug-iphonesimulator/$PRODUCT_FRAMEWORK"
 
 echo "Debug Product ========"
