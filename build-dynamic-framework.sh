@@ -50,9 +50,8 @@ echo "Debug Source ========"
 ls "${SRCROOT}"
 echo "====================="
 
-rm -rf "$SIMULATOR_DIR/Debug-iphonesimulator"
 xcodebuild -project "${SRCROOT}/FlintConnect.xcodeproj" -target "FlintConnectSDK" -configuration "Release" -sdk iphonesimulator BUILD_DIR="$SIMULATOR_DIR" BUILD_ROOT="$SIMULATOR_DIR" clean build
-SIMULATOR_BIN="$SIMULATOR_DIR/Debug-iphonesimulator/$PRODUCT_FRAMEWORK"
+SIMULATOR_BIN="$SIMULATOR_DIR/Release-iphonesimulator/$PRODUCT_FRAMEWORK"
 
 echo "Debug Product ========"
 ls "$SIMULATOR_DIR"
