@@ -60,7 +60,7 @@ echo "Preparing to distribute app via TestFlight"
 echo "------------------------------------------"
 
 SOURCE_DIR="${XCS_SOURCE_DIR}/ios-flint-app"
-IPA_DIR="${XCS_OUTPUT_DIR}/ExportedProduct"
+IPA_DIR="${XCS_OUTPUT_DIR}/ExportedProduct/Apps"
 DSYM_DIR="${XCS_OUTPUT_DIR}/FlintCardScanner.xcarchive"
 DSYM_FILE="FlintCardScanner.app.dSYM"
 
